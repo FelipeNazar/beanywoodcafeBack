@@ -13,9 +13,10 @@ public class JwtUtil {
     private static String SECRET_KEY = "Ucm-c0ff33";
     private static Algorithm ALGORITHM = Algorithm.HMAC256(SECRET_KEY);
 
-    public String create(String username) {
+    public String create(String username, String rol) {
         return JWT.create()
                 .withSubject(username)
+                .withClaim("rol", rol)
                 .withIssuer("ucm-coffee")
                 .withIssuedAt(new Date())
                 .withExpiresAt(new Date(System.currentTimeMillis() + TimeUnit.DAYS.toMillis(15)))

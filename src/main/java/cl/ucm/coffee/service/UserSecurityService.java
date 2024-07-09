@@ -24,7 +24,6 @@ public class UserSecurityService implements UserDetailsService {
 //    public UserSecurityService(UserRepository userRepository) {
 //        this.userRepository = userRepository;
 //    }
-
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         UserEntity userEntity = this.userRepository.findById(username)
